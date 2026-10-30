@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="कर्मा तेकरी खेल विकास संगठन - कराटे प्रशिक्षण और खेल विकास।">
+<title>कर्मा तेकरी खेल विकास संगठन</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --ink: #171b2a;
+    --muted: #697080;
+    --orange: #f07824;
+    --cream: #f7f5f0;
+    --navy: #171c2b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', 'Noto Sans Devanagari', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+.site-header {
+    min-height: 88px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    position: relative;
+    z-index: 5;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.brand span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand strong {
+    font-size: 16px;
+}
+
+.brand small {
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    color: #828694;
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.site-header nav a:hover {
+    color: var(--orange);
+}
+
+.nav-contact {
+    background: var(--ink);
+    color: white;
+    padding: 13px 21px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 640px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy);
+    color: white;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    background:
+    linear-gradient(90deg,
+    rgba(18,23,37,.96),
+    rgba(18,23,37,.85) 42%,
+    rgba(18,23,37,.25)),
+    url('assets/karate-class.jpg') center 45%/cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 95px 0 100px 11%;
+    max-width: 720px;
+}
+
+.eyebrow {
+    color: #ffc08e;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    font-weight: 800;
+}
+
+.eyebrow span {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--orange);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: clamp(43px, 6vw, 76px);
+    line-height: 1.3;
+    margin: 26px 0 20px;
+}
+
+h1 em, h2 em {
+    font-style: normal;
+    color: var(--orange);
+}
+
+.hero-copy {
+    max-width: 460px;
+    color: #d3d5dc;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    padding: 16px 22px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid #ffffff70;
+    color: white;
+}
+
+.hero-note {
+    margin-top: 62px;
+    color: #b8bdc9;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+}
+
+.hero-stamp {
+    position: absolute;
+    right: 8%;
+    bottom: 12%;
+    width: 135px;
+    height: 135px;
+    border: 1px solid #ffffff80;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transform: rotate(-12deg);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.hero-stamp b {
+    color: #ffb477;
+    font-size: 13px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 110px 11%;
+}
+
+.section-tag {
+    color: var(--orange);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    font-weight: 800;
+    margin-bottom: 27px;
+}
+
+h2 {
+    font-size: clamp(34px, 4.2vw, 54px);
+    line-height: 1.35;
+}
+
+.intro-grid,
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9vw;
+}
+
+.intro-text p,
+.section-heading > p,
+.contact-lead {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2.1;
+    margin-bottom: 15px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 17px;
+    font-size: 11px;
+    font-weight: 800;
+    border-bottom: 1px solid var(--orange);
+    padding-bottom: 9px;
+}
+
+/* ACTIVITIES */
+
+.activities {
+    background: white;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 45px;
+}
+
+.section-heading > p {
+    max-width: 330px;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 17px;
+}
+
+.activity-card {
+    height: 370px;
+    position: relative;
+    overflow: hidden;
+    background: #202638;
+}
+
+.activity-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.activity-card:hover img {
+    transform: scale(1.05);
+}
+
+.activity-card:after {
+    content: "";
+    position: absolute;
+    inset: 25% 0 0;
+    background: linear-gradient(transparent, rgba(14,18,29,.94));
+}
+
+.card-overlay {
+    position: absolute;
+    z-index: 1;
+    bottom: 25px;
+    left: 25px;
+    right: 20px;
+    color: white;
+}
+
+.card-overlay > span {
+    font-size: 10px;
+    color: #ffb477;
+}
+
+.card-overlay h3 {
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.card-overlay p {
+    font-size: 11px;
+    color: #d1d3da;
+    line-height: 1.8;
+}
+
+/* QUOTE */
+
+.quote-band {
+    background: var(--orange);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.quote-band p {
+    font-size: clamp(25px, 3.3vw, 39px);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-auto-rows: 220px;
+    gap: 14px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-grid img:first-child {
+    grid-row: span 2;
+}
+
+.gallery-grid img:last-child {
+    grid-column: span 2;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--navy);
+    color: white;
+}
+
+.contact .section-tag {
+    color: #ffb477;
+}
+
+.contact-lead {
+    color: #b7bdc9;
+    margin-top: 22px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.contact-details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid #ffffff24;
+    padding-bottom: 19px;
+}
+
+.contact-details span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #ffb477;
+    font-weight: 800;
+}
+
+.contact-details a,
+.contact-details p {
+    font-size: 14px;
+    color: #e7e8ec;
+    line-height: 1.8;
+}
+
+.contact-details a:hover {
+    color: #ffb477;
+}
+
+.mail-btn {
+    align-self: flex-start;
+}
+
+/* FOOTER */
+
+footer {
+    background: #10141f;
+    color: #b7bdc9;
+    padding: 28px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    font-size: 10px;
+}
+
+.footer-brand {
+    color: white;
+    font-weight: 700;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .site-header {
+        padding: 12px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .brand img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .brand strong {
+        font-size: 13px;
+    }
+
+    .site-header nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 10px;
+        padding: 8px 0;
+    }
+
+    .hero {
+        min-height: 610px;
+    }
+
+    .hero-content {
+        padding: 85px 7%;
+    }
+
+    .hero-stamp {
+        right: 7%;
+        bottom: 5%;
+        width: 95px;
+        height: 95px;
+    }
+
+    .section {
+        padding: 75px 7%;
+    }
+
+    .intro-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .activity-feature {
+        grid-column: span 2;
+    }
+
+    .activity-card {
+        height: 300px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 170px;
+    }
+
+    .gallery-grid img:last-child {
+        grid-column: span 2;
+    }
+
+    footer {
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width:480px) {
+
+    .hero-content {
+        padding-top: 70px;
+        padding-bottom: 120px;
+    }
+
+    h1 {
+        font-size: 43px;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+    }
+
+    .hero-stamp {
+        display: none;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-feature {
+        grid-column: auto;
+    }
+
+    .activity-card {
+        height: 280px;
+    }
+
+    .gallery-grid {
+        grid-auto-rows: 130px;
+        gap: 8px;
+    }
+
+    .quote-band {
+        padding: 55px 20px;
+    }
+
+    .contact-details a {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="site-header">
+
+    <a class="brand" href="#home">
+        <img src="assets/logo.png" alt="Organisation Logo">
+        <span>
+            <strong>कर्मा तेकरी खेल विकास संगठन</strong>
+            <small>गेवर्रा सोसायटी</small>
+        </span>
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#activities">Activities</a>
+        <a href="#gallery">Gallery</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-image"></div>
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            <span></span>
+            खेल · अनुशासन · आत्मविश्वास
+        </p>
+
+        <h1>
+            हर कदम में <em>शक्ति</em>,<br>
+            हर सपने को उड़ान।
+        </h1>
+
+        <p class="hero-copy">
+            खेल और कराटे के माध्यम से बच्चों एवं महिलाओं में
+            आत्मविश्वास, अनुशासन और नेतृत्व का विकास।
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#activities">
+                हमारी गतिविधियाँ ↗
+            </a>
+
+            <a class="btn btn-outline" href="#contact">
+                हमसे जुड़ें
+            </a>
+        </div>
+
+        <div class="hero-note">
+            ━ Gevra Society · Korba, Chhattisgarh
+        </div>
+
+    </div>
+
+    <div class="hero-stamp">
+        <span>BUILD</span>
+        <b>CONFIDENCE</b>
+        <span>THROUGH SPORT</span>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+    <div class="section-tag">01 / परिचय</div>
+
+    <div class="intro-grid">
+
+        <div>
+            <h2>
+                खेल से बनता है<br>
+                <em>मजबूत भविष्य।</em>
+            </h2>
+        </div>
+
+        <div class="intro-text">
+
+            <p>
+                कर्मा तेकरी खेल विकास संगठन गेवर्रा सोसायटी
+                एक महिला संगठन है, जो खेल गतिविधियों और
+                कराटे प्रशिक्षण के माध्यम से प्रतिभाओं को
+                आगे बढ़ाने का प्रयास करता है।
+            </p>
+
+            <p>
+                हमारा उद्देश्य बच्चों और युवाओं को सीखने,
+                अभ्यास करने और अपनी क्षमता पहचानने के लिए
+                सकारात्मक मंच देना है।
+            </p>
+
+            <a class="text-link" href="#contact">
+                संपर्क करें →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ACTIVITIES -->
+
+<section class="section activities" id="activities">
+
+    <div class="section-heading">
+
+        <div>
+            <div class="section-tag">02 / हमारी गतिविधियाँ</div>
+
+            <h2>
+                सीखें। अभ्यास करें।<br>
+                <em>आगे बढ़ें।</em>
+            </h2>
+        </div>
+
+        <p>
+            नियमित अभ्यास और सामूहिक गतिविधियों के जरिए
+            कौशल, आत्मविश्वास और टीम भावना को प्रोत्साहन।
+        </p>
+
+    </div>
+
+    <div class="activity-grid">
+
+        <article class="activity-card activity-feature">
+
+            <img src="assets/karate-practice.jpg" alt="Karate Practice">
+
+            <div class="card-overlay">
+                <span>01</span>
+                <h3>कराटे प्रशिक्षण</h3>
+                <p>अनुशासन, एकाग्रता और आत्मविश्वास का अभ्यास।</p>
+            </div>
+
+        </article>
+
+        <article class="activity-card">
+
+            <img src="assets/training-group.jpg" alt="Training Group">
+
+            <div class="card-overlay">
+                <span>02</span>
+                <h3>खेल एवं सामूहिक अभ्यास</h3>
+                <p>साथ सीखना और साथ आगे बढ़ना।</p>
+            </div>
+
+        </article>
+
+        <article class="activity-card">
+
+            <img src="assets/award-ceremony.jpg" alt="Award Ceremony">
+
+            <div class="card-overlay">
+                <span>03</span>
+                <h3>सम्मान एवं प्रोत्साहन</h3>
+                <p>प्रतिभा और उपलब्धियों को पहचान।</p>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-band">
+
+    <p>
+        “आत्मविश्वास अभ्यास से आता है,<br>
+        और हर शुरुआत एक अवसर है।”
+    </p>
+
+    <span>कर्मा तेकरी खेल विकास संगठन</span>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section gallery" id="gallery">
+
+    <div class="section-heading">
+
+        <div>
+            <div class="section-tag">03 / हमारी झलकियाँ</div>
+
+            <h2>
+                यादगार पल,<br>
+                <em>बड़ी उपलब्धियाँ।</em>
+            </h2>
+        </div>
+
+        <p>
+            प्रशिक्षण, कार्यक्रमों और सामूहिक प्रयासों
+            की कुछ झलकियाँ।
+        </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="assets/karate-class.jpg" alt="Karate Class">
+
+        <img src="assets/students-group.jpg" alt="Students Group">
+
+        <img src="assets/inauguration.jpg" alt="Inauguration">
+
+        <img src="assets/event-speaker.jpg" alt="Event">
+
+        <img src="assets/team-photo.jpg" alt="Team Photo">
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+    <div class="section-tag">04 / संपर्क</div>
+
+    <div class="contact-grid">
+
+        <div>
+
+            <h2>
+                आइए, साथ मिलकर<br>
+                <em>आगे बढ़ें।</em>
+            </h2>
+
+            <p class="contact-lead">
+                प्रशिक्षण और संगठन से जुड़ी जानकारी
+                के लिए हमसे संपर्क करें।
+            </p>
+
+        </div>
+
+        <div class="contact-details">
+
+            <div>
+                <span>EMAIL</span>
+                <a href="mailto:ktkvsangathan@gmail.com">
+                    ktkvsangathan@gmail.com
+                </a>
+            </div>
+
+            <div>
+                <span>PHONE</span>
+                <a href="tel:+917879538920">
+                    +91 78795 38920
+                </a>
+
+                <a href="tel:+919131393205">
+                    +91 91313 93205
+                </a>
+            </div>
+
+            <div>
+                <span>ADDRESS</span>
+                <p>
+                    यूको बैंक के सामने, दीपका,<br>
+                    तहसील कटघोरा, जिला कोरबा (छ.ग.)
+                </p>
+            </div>
+
+            <a class="btn btn-primary mail-btn"
+               href="mailto:ktkvsangathan@gmail.com?subject=Website%20Enquiry">
+                ईमेल भेजें ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <a class="footer-brand" href="#home">
+        कर्मा तेकरी खेल विकास संगठन
+    </a>
+
+    <span>गेवर्रा सोसायटी · कोरबा, छत्तीसगढ़</span>
+
+    <a href="mailto:ktkvsangathan@gmail.com">
+        ktkvsangathan@gmail.com
+    </a>
+
+    <small>© 2026 All Rights Reserved.</small>
+
+</footer>
+
+</body>
+</html>
